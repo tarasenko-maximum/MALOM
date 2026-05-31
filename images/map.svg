@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <!-- Glow/Halo Filter for Markers -->
+    <filter id="marker-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+      <feFlood flood-color="#FAFAF8" flood-opacity="0.9" result="flood" />
+      <feComposite in="flood" in2="blur" operator="in" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Subtle Dot Pattern for Continent Fills -->
+    <pattern id="dot-pattern" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.2" fill="#A2A094" opacity="0.18" />
+    </pattern>
+  </defs>
+
+  <style>
+    /* Continent Styles */
+    .continent {
+      fill: url(#dot-pattern);
+      stroke: #8B8674;
+      stroke-width: 1px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      opacity: 0.85;
+    }
+
+    /* Marker Interactive Styles */
+    .marker-group {
+      cursor: pointer;
+      pointer-events: all;
+    }
+
+    .marker-diamond {
+      transform: rotate(45deg);
+      transform-origin: 0px 0px;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), fill 0.25s ease;
+    }
+
+    .marker-group:hover .marker-diamond {
+      transform: rotate(45deg) scale(1.25);
+      fill: #315972; /* Darker Malom Blue on hover */
+    }
+
+    /* Sweden, Poland, Cyprus, UAE Ring (Normal) */
+    .marker-ring {
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), stroke-width 0.25s ease;
+      transform-origin: 0px 0px;
+    }
+
+    .marker-group:hover .marker-ring {
+      transform: scale(1.25);
+      stroke-width: 1.5px;
+    }
+
+    /* Country Label Style (label-sm: uppercase, letter-spacing 0.1em, Inter font) */
+    .marker-label {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      fill: #1A1F2B;
+      letter-spacing: 0.12em;
+      text-anchor: middle;
+      dominant-baseline: hanging;
+      transition: fill 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.25s ease;
+      transform-origin: 0px 24px;
+    }
+
+    .marker-group:hover .marker-label {
+      fill: #315972; /* Malom Blue */
+      transform: scale(1.08);
+    }
+  </style>
+
+  <!-- Simplified Continent Contours -->
+  <!-- Greenland -->
+  <path class="continent" d="M 460,80 Q 490,50 520,70 T 490,130 Q 460,110 460,80 Z" />
+
+  <!-- North America -->
+  <path class="continent" d="M 120,150 Q 180,90 260,80 T 420,90 Q 460,120 450,180 T 420,270 Q 410,310 395,350 T 360,390 Q 350,335 310,310 T 250,270 Q 200,240 160,210 Z" />
+
+  <!-- South America -->
+  <path class="continent" d="M 370,390 Q 420,380 460,400 T 500,450 Q 490,500 460,540 T 425,590 Q 410,560 395,500 T 375,440 Z" />
+
+  <!-- Africa -->
+  <path class="continent" d="M 540,310 Q 620,300 680,310 T 760,360 Q 730,440 690,520 T 660,570 Q 640,540 610,480 T 530,390 Q 520,350 540,310 Z" />
+
+  <!-- Europe -->
+  <path class="continent" d="M 540,290 Q 550,230 535,190 T 570,180 Q 600,120 630,100 T 650,80 Q 665,110 650,170 T 675,190 Q 720,185 750,170 L 760,230 Q 720,240 680,250 T 630,280 Q 580,300 540,290 Z" />
+
+  <!-- Asia -->
+  <path class="continent" d="M 750,170 Q 900,100 1100,100 T 1160,150 Q 1130,220 1090,260 T 990,360 Q 940,380 870,370 T 770,335 Q 750,300 750,250 Z" />
+
+  <!-- Australia -->
+  <path class="continent" d="M 985,450 Q 1050,430 1090,460 T 1070,520 Q 1020,530 985,500 T 985,450 Z" />
+
+
+  <!-- Location Markers & Labels -->
+
+  <!-- 1. SWEDEN -->
+  <g class="marker-group" transform="translate(640, 160)">
+    <!-- Base Glow -->
+    <rect x="-8" y="-8" width="16" height="16" transform="rotate(45)" fill="#FAFAF8" opacity="0.45" filter="url(#marker-glow)" />
+    <!-- Main Diamond -->
+    <rect class="marker-diamond" x="-6" y="-6" width="12" height="12" fill="#4A728C" />
+    <!-- Label -->
+    <text class="marker-label" x="0" y="24">SWEDEN</text>
+  </g>
+
+  <!-- 2. POLAND -->
+  <g class="marker-group" transform="translate(655, 220)">
+    <!-- Base Glow -->
+    <rect x="-8" y="-8" width="16" height="16" transform="rotate(45)" fill="#FAFAF8" opacity="0.45" filter="url(#marker-glow)" />
+    <!-- Main Diamond -->
+    <rect class="marker-diamond" x="-6" y="-6" width="12" height="12" fill="#4A728C" />
+    <!-- Label -->
+    <text class="marker-label" x="0" y="24">POLAND</text>
+  </g>
+
+  <!-- 3. CYPRUS -->
+  <g class="marker-group" transform="translate(720, 290)">
+    <!-- Base Glow -->
+    <rect x="-8" y="-8" width="16" height="16" transform="rotate(45)" fill="#FAFAF8" opacity="0.45" filter="url(#marker-glow)" />
+    <!-- Main Diamond -->
+    <rect class="marker-diamond" x="-6" y="-6" width="12" height="12" fill="#4A728C" />
+    <!-- Label -->
+    <text class="marker-label" x="0" y="24">CYPRUS</text>
+  </g>
+
+  <!-- 4. UAE -->
+  <g class="marker-group" transform="translate(780, 310)">
+    <!-- Base Glow -->
+    <rect x="-8" y="-8" width="16" height="16" transform="rotate(45)" fill="#FAFAF8" opacity="0.45" filter="url(#marker-glow)" />
+    <!-- Main Diamond -->
+    <rect class="marker-diamond" x="-6" y="-6" width="12" height="12" fill="#4A728C" />
+    <!-- Label -->
+    <text class="marker-label" x="0" y="24">UAE</text>
+  </g>
+
+  <!-- 5. SERBIA (Flagship Market - Highlighted with Ring and Larger Size) -->
+  <g class="marker-group" transform="translate(650, 250)">
+    <!-- Outer Flagship Pulsing/Focus Ring -->
+    <circle class="marker-ring" cx="0" cy="0" r="18" fill="none" stroke="#4A728C" stroke-width="1.2" stroke-dasharray="2 2" opacity="0.75" />
+    <!-- Outer Solid Border Ring -->
+    <circle class="marker-ring" cx="0" cy="0" r="14" fill="none" stroke="#4A728C" stroke-width="1" opacity="0.5" />
+    <!-- Base Glow -->
+    <rect x="-10" y="-10" width="20" height="20" transform="rotate(45)" fill="#FAFAF8" opacity="0.55" filter="url(#marker-glow)" />
+    <!-- Main Larger Diamond (16x16) -->
+    <rect class="marker-diamond" x="-8" y="-8" width="16" height="16" fill="#4A728C" />
+    <!-- Label -->
+    <text class="marker-label" x="0" y="26" font-weight="700">SERBIA</text>
+  </g>
+</svg>
