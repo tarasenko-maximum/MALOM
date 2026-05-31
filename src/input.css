@@ -1,0 +1,93 @@
+/* ─────────────────────────────────────────────
+   Malom Invest — src/input.css
+   Tailwind directives + global overrides
+   ───────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base layer: resets & font-display ─────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Visible focus rings for keyboard navigation (WCAG AA) */
+  :focus-visible {
+    outline: 2px solid #315972;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Selection colour */
+  ::selection {
+    background-color: rgba(49, 89, 114, 0.2);
+  }
+}
+
+/* ── Component layer: reusable patterns ──────── */
+@layer components {
+
+  /* Material Symbols icon tuning */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    font-display: optional;
+  }
+
+  /* Reveal-on-scroll animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Diamond bullet list marker */
+  .diamond-marker::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #315972;
+    transform: rotate(45deg);
+    margin-right: 12px;
+    margin-bottom: 2px;
+  }
+
+  /* Glassmorphism nav */
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /*
+    .form-field floating-label styles live directly in index.html as inline
+    Tailwind classes (including peer-[:not(:placeholder-shown)] variants which
+    cannot be used inside @apply in Tailwind v3). See the contact form in index.html.
+  */
+}
+
+/* ── Utilities layer: custom helpers ───────────── */
+@layer utilities {
+  /* Section padding halved on mobile */
+  @media (max-width: 768px) {
+    .py-section_padding {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+}

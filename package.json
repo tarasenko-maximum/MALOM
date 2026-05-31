@@ -1,0 +1,17 @@
+{
+  "name": "malom-invest",
+  "version": "1.0.0",
+  "description": "Malom Invest — Premium International Real Estate Developer",
+  "scripts": {
+    "dev": "tailwindcss -i src/input.css -o dist/output.css --watch",
+    "build": "tailwindcss -i src/input.css -o dist/output.css --minify",
+    "serve": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "keywords": ["real-estate", "premium", "malom", "serbia"],
+  "author": "Malom Invest",
+  "license": "UNLICENSED",
+  "private": true
+}
