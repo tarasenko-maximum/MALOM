@@ -15,7 +15,7 @@ Located at: `C:\dev\malom-invest\AGENTS.md`
 | **Build tool** | `npm run build` → `dist/output.css` |
 | **Deploy targets** | Vercel (primary), Netlify (alternative) |
 | **Working directory** | `C:\dev\malom-invest` |
-| **Source backup** | `G:\Мой диск\AIMAX\МАЛОМ\Сайт 2` (read-only, do not delete) |
+| **Google Drive Sync** | Deprecated (disabled due to EBADF errors with Cyrillic paths) |
 | **Form backend** | Formspree (no server code, ever) |
 
 ---
