@@ -8,33 +8,34 @@
   for easy extraction into a translation layer.
   When multilang is added, swap <html lang="en"> to the active locale.
 -->
-<html lang="en" class="scroll-smooth">
+<html lang="sr" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ── SEO: Title & Description ───────────────────────────────── -->
-  <title>Malom Invest — Homes that live with you.</title>
-  <meta name="description" content="Premium residences in Serbia and across Europe. Hillside and urban homes designed for the rhythm of daily life — since 2016." />
+  <title>Malom Invest — Domovi koji žive sa vama.</title>
+  <meta name="description" content="Premium rezidencije u Srbiji i širom Evrope. Domovi na padinama i u gradu, osmišljeni za ritam svakodnevnog života — od 2016. godine." />
 
   <!-- ── Canonical URL (replace with live domain) ───────────────── -->
-  <link rel="canonical" href="https://malominvest.com/" />
+  <link rel="canonical" href="https://malominvest.com/sr/" />
   <link rel="alternate" hreflang="en" href="https://malominvest.com/" />
   <link rel="alternate" hreflang="sr-Latn" href="https://malominvest.com/sr/" />
   <link rel="alternate" hreflang="x-default" href="https://malominvest.com/" />
+  <meta property="og:locale" content="sr_RS" />
 
   <!-- ── Open Graph ─────────────────────────────────────────────── -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://malominvest.com/" />
-  <meta property="og:title"       content="Malom Invest — Homes that live with you." />
-  <meta property="og:description" content="Premium residences in Serbia and across Europe. Hillside and urban homes designed for the rhythm of daily life — since 2016." />
+  <meta property="og:url"         content="https://malominvest.com/sr/" />
+  <meta property="og:title"       content="Malom Invest — Domovi koji žive sa vama." />
+  <meta property="og:description" content="Premium rezidencije u Srbiji i širom Evrope. Domovi na padinama i u gradu, osmišljeni za ritam svakodnevnog života — od 2016. godine." />
   <meta property="og:image"       content="https://malominvest.com/images/og-image.jpg" />
   <!-- og:image dimensions: 1200×630 — see images/README.md -->
 
   <!-- ── Twitter Card ───────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Malom Invest — Homes that live with you." />
-  <meta name="twitter:description" content="Premium residences in Serbia and across Europe. Hillside and urban homes designed for the rhythm of daily life — since 2016." />
+  <meta name="twitter:title"       content="Malom Invest — Domovi koji žive sa vama." />
+  <meta name="twitter:description" content="Premium rezidencije u Srbiji i širom Evrope. Domovi na padinama i u gradu, osmišljeni za ritam svakodnevnog života — od 2016. godine." />
   <meta name="twitter:image"       content="https://malominvest.com/images/og-image.jpg" />
 
   <!-- ── Favicon ────────────────────────────────────────────────── -->
@@ -43,7 +44,7 @@
     Replace with a proper .ico + apple-touch-icon when branding assets are finalized.
     Recommended tool: https://realfavicongenerator.net/
   -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
   <!-- ── Font preloads (performance) ───────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,7 +63,7 @@
     Run `npm run build` to generate public/dist/output.css.
     During development run `npm run dev` for watch mode.
   -->
-  <link rel="stylesheet" href="dist/output.css" />
+  <link rel="stylesheet" href="/dist/output.css" />
 
   <!-- ── JSON-LD Structured Data ───────────────────────────────── -->
   <script type="application/ld+json">
@@ -72,7 +73,7 @@
     "name": "Malom Invest",
     "url": "https://malominvest.com/",
     "logo": "https://malominvest.com/images/logo.png",
-    "description": "Premium residences in Serbia and across Europe. Hillside and urban homes designed for the rhythm of daily life — since 2016.",
+    "description": "Premium rezidencije u Srbiji i širom Evrope. Domovi na padinama i u gradu, osmišljeni za ritam svakodnevnog života — od 2016. godine.",
     "foundingDate": "2016",
     "address": {
       "@type": "PostalAddress",
@@ -103,19 +104,19 @@
        ═══════════════════════════════════════════════════════════════ -->
   <nav
     class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 h-20"
-    aria-label="Main navigation"
+    aria-label="Glavna navigacija"
   >
     <div class="flex justify-between items-center max-w-max_width mx-auto px-margin_mobile md:px-gutter h-full">
 
       <!-- Brand / Logo -->
-      <a href="/" aria-label="Malom Invest — Home" class="flex items-center gap-4">
+      <a href="/sr/" aria-label="Malom Invest — Home" class="flex items-center gap-4">
         <!--
           LOGO: Replace src with /images/logo.png once client provides assets.
           Using actual logo from Логотипы/1.png (full horizontal lockup).
           Fallback: text wordmark below the image.
         -->
         <img
-          src="logos/1.png"
+          src="/logos/1.png"
           alt="Malom Invest logo"
           class="h-8 w-auto"
           width="160"
@@ -130,30 +131,30 @@
           class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
           href="#heritage"
           role="menuitem"
-          aria-label="Navigate to Heritage section"
-        >Heritage</a>
+          aria-label="Idite na sekciju O nama"
+        >O nama</a>
         <a
           class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
           href="#portfolios"
           role="menuitem"
-          aria-label="Navigate to Portfolios section"
-        >Portfolios</a>
+          aria-label="Idite na sekciju Domovi"
+        >Domovi</a>
         <a
           class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
           href="#philosophy"
           role="menuitem"
-          aria-label="Navigate to Philosophy section"
-        >Philosophy</a>
+          aria-label="Idite na sekciju Filozofija"
+        >Filozofija</a>
         <a
           class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
           href="#network"
           role="menuitem"
-          aria-label="Navigate to Network section"
-        >Network</a>
-        <span class="flex items-center gap-4 font-label-sm text-label-sm uppercase tracking-widest" aria-label="Language">
-          <a class="text-secondary hover:text-primary transition-colors" href="/sr/" hreflang="sr-Latn">SR</a>
+          aria-label="Idite na sekciju Prisustvo"
+        >Prisustvo</a>
+        <span class="flex items-center gap-4 font-label-sm text-label-sm uppercase tracking-widest" aria-label="Jezik">
+          <span class="text-primary" aria-current="true">SR</span>
           <span class="text-secondary opacity-50" aria-hidden="true">/</span>
-          <span class="text-primary" aria-current="true">EN</span>
+          <a class="text-secondary hover:text-primary transition-colors" href="/" hreflang="en">EN</a>
         </span>
       </div>
 
@@ -161,17 +162,17 @@
       <button
         id="btn-inquire"
         class="hidden md:block px-8 py-2.5 bg-primary text-on-primary font-label-sm uppercase tracking-widest rounded-[2px] active:scale-95 duration-200 transition-all hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
-        aria-label="Make an investment inquiry"
+        aria-label="Pošaljite upit"
         type="button"
       >
-        Inquire
+        Kontakt
       </button>
 
       <!-- Mobile hamburger -->
       <button
         id="btn-mobile-menu"
         class="md:hidden flex flex-col justify-center gap-[5px] w-8 h-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
-        aria-label="Open navigation menu"
+        aria-label="Otvorite meni"
         aria-expanded="false"
         aria-controls="mobile-menu"
         type="button"
@@ -188,15 +189,15 @@
       class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 px-margin_mobile py-6 flex flex-col gap-6"
       role="menu"
     >
-      <a href="#heritage"   class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Heritage</a>
-      <a href="#portfolios" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Portfolios</a>
-      <a href="#philosophy" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Philosophy</a>
-      <a href="#network"    class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Network</a>
-      <a href="#contact"    class="inline-block px-8 py-2.5 bg-primary text-on-primary font-label-sm uppercase tracking-widest rounded-[2px] text-center" role="menuitem">Inquire</a>
-      <div class="flex items-center gap-4 font-label-sm text-label-sm uppercase tracking-widest pt-4" aria-label="Language">
-        <a class="text-secondary hover:text-primary transition-colors" href="/sr/" hreflang="sr-Latn">SR</a>
+      <a href="#heritage"   class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">O nama</a>
+      <a href="#portfolios" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Domovi</a>
+      <a href="#philosophy" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Filozofija</a>
+      <a href="#network"    class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors" role="menuitem">Prisustvo</a>
+      <a href="#contact"    class="inline-block px-8 py-2.5 bg-primary text-on-primary font-label-sm uppercase tracking-widest rounded-[2px] text-center" role="menuitem">Kontakt</a>
+      <div class="flex items-center gap-4 font-label-sm text-label-sm uppercase tracking-widest pt-4" aria-label="Jezik">
+        <span class="text-primary" aria-current="true">SR</span>
         <span class="text-secondary opacity-50" aria-hidden="true">/</span>
-        <span class="text-primary" aria-current="true">EN</span>
+        <a class="text-secondary hover:text-primary transition-colors" href="/" hreflang="en">EN</a>
       </div>
     </div>
   </nav>
@@ -216,8 +217,8 @@
       -->
       <img
         class="w-full h-full object-cover"
-        src="images/hero.jpg"
-        alt="Malom Invest residence — contemporary white building with cherry blossoms in spring garden"
+        src="/images/hero.jpg"
+        alt="Malom Invest rezidencija — savremena bela zgrada sa rascvetalim trešnjama u prolećnom vrtu"
         fetchpriority="high"
         loading="eager"
         width="1920"
@@ -231,20 +232,20 @@
     <!-- Hero text content -->
     <div class="relative z-10 text-center px-margin_mobile max-w-4xl reveal">
       <h1 class="font-display-lg text-display-lg text-white">
-        Homes that live with you.
+        Domovi koji žive sa vama.
       </h1>
       <p class="mt-6 font-body-lg text-body-lg text-white/80 max-w-xl mx-auto">
-        Premium residences designed for the rhythm of daily life. <br class="hidden md:block" />
-        Natural materials, intelligent comfort, and uncompromising craftsmanship — since 2016.
+        Premium rezidencije osmišljene za ritam svakodnevnog života. <br class="hidden md:block" />
+        Prirodni materijali, inteligentan komfor i beskompromisno majstorstvo — od 2016. godine.
       </p>
       <div class="mt-12 flex flex-col items-center gap-8">
         <button
           id="btn-explore"
           class="px-12 py-4 border border-white text-white font-label-sm uppercase tracking-widest rounded-[2px] hover:bg-white hover:text-primary transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
           type="button"
-          aria-label="Explore our property portfolios"
+          aria-label="Pogledajte naše domove"
         >
-          Discover Our Homes
+          Otkrijte naše domove
         </button>
       </div>
     </div>
@@ -252,15 +253,15 @@
     <!-- Geo presence ticker bar -->
     <div class="absolute bottom-0 w-full bg-white/10 backdrop-blur-md py-6 border-t border-white/20" aria-label="Markets we operate in">
       <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter flex flex-wrap justify-between items-center text-white/90 font-label-sm uppercase tracking-widest">
-        <span>Cyprus</span>
+        <span>Kipar</span>
         <span class="text-primary-fixed-dim" aria-hidden="true">◇</span>
-        <span>Sweden</span>
+        <span>Švedska</span>
         <span class="text-primary-fixed-dim" aria-hidden="true">◇</span>
-        <span>Poland</span>
+        <span>Poljska</span>
         <span class="text-primary-fixed-dim" aria-hidden="true">◇</span>
-        <span>Middle East</span>
+        <span>Bliski istok</span>
         <span class="text-primary-fixed-dim" aria-hidden="true">◇</span>
-        <span>Serbia</span>
+        <span>Srbija</span>
       </div>
     </div>
   </header>
@@ -274,33 +275,33 @@
 
       <!-- Text block -->
       <div class="md:col-span-5 reveal">
-        <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-6">OUR PHILOSOPHY</p>
+        <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-6">NAŠA FILOZOFIJA</p>
         <h2 id="heritage-heading" class="font-headline-lg text-headline-lg text-on-surface mb-8">
-          Built for the way you live.
+          Stvoreno za način na koji živite.
         </h2>
         <p class="font-body-lg text-body-lg text-secondary mb-8">
-          Since 2016, Malom Invest has been creating premium residences that put people first. Every detail — from the choice of natural stone to the temperature of the morning light through your kitchen window — is considered for one purpose: a home that feels like yours from the first day.
+          Od 2016. godine Malom Invest stvara premium rezidencije koje na prvo mesto stavljaju čoveka. Svaki detalj — od izbora prirodnog kamena do temperature jutarnje svetlosti koja ulazi kroz prozor vaše kuhinje — promišljen je sa jednim ciljem: dom koji se od prvog dana doživljava kao vaš.
         </p>
       </div>
 
       <!-- Stats block -->
       <div class="md:col-start-8 md:col-span-5 flex flex-col gap-12 reveal">
         <div class="flex items-center gap-8 border-b border-outline-variant pb-8">
-          <span class="font-display-lg text-display-lg text-primary" aria-label="Founded in 2016">2016</span>
+          <span class="font-display-lg text-display-lg text-primary" aria-label="Osnovano 2016. godine">2016</span>
           <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">
-            Foundation<br />of Excellence
+            Temelj<br />izvrsnosti
           </span>
         </div>
         <div class="flex items-center gap-8 border-b border-outline-variant pb-8">
-          <span class="font-display-lg text-display-lg text-primary" aria-label="More than 40 global developments">40+</span>
+          <span class="font-display-lg text-display-lg text-primary" aria-label="Više od 40 realizovanih projekata">40+</span>
           <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">
-            Homes<br />Delivered
+            Izgrađenih<br />domova
           </span>
         </div>
         <div class="flex items-center gap-8">
-          <span class="font-display-lg text-display-lg text-primary" aria-label="5 strategic hubs">5</span>
+          <span class="font-display-lg text-display-lg text-primary" aria-label="5 zemalja iskustva">5</span>
           <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">
-            Countries of<br />Experience
+            Zemalja<br />iskustva
           </span>
         </div>
       </div>
@@ -314,7 +315,7 @@
        ═══════════════════════════════════════════════════════════════ -->
   <section class="bg-stone pt-[72px] pb-section_padding scroll-mt-20" id="portfolios" aria-labelledby="portfolios-heading">
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter">
-      <h2 id="portfolios-heading" class="font-headline-lg text-headline-lg text-on-surface text-center mb-16">Two ways to come home.</h2>
+      <h2 id="portfolios-heading" class="font-headline-lg text-headline-lg text-on-surface text-center mb-16">Dva načina da dođete kući.</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
         <!-- Product Card 1: Hillside Residences -->
@@ -330,8 +331,8 @@
             -->
             <img
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="images/product-1.jpg"
-              alt="Hillside Residences — aerial view of Malom building integrated with Vojvodina forest, with Danube valley in distance"
+              src="/images/product-1.jpg"
+              alt="Hillside Residences — pogled iz vazduha na Malom zgradu uklopljenu u vojvođansku šumu, sa dolinom Dunava u daljini"
               loading="lazy"
               width="800"
               height="1000"
@@ -341,14 +342,14 @@
           <div class="mt-8">
             <h3 class="font-headline-md text-headline-md mb-4">Hillside Residences</h3>
             <p class="font-body-md text-body-md text-secondary mb-6">
-              Set in the protected landscapes of Vojvodina — surrounded by mature forest, panoramic views, and the quiet that only altitude provides. Each Malom hillside building hosts only 6 families. Underground parking, terraces on every floor, oak interiors. The address where Belgrade's professionals come to disconnect.
+              Smeštene u zaštićenim predelima Vojvodine — okružene zrelom šumom, panoramskim pogledima i mirom koji pruža samo visina. Svaka Malom zgrada na padini dom je za samo 6 porodica. Podzemna garaža, terase na svakom spratu, enterijeri od hrastovine. Adresa na koju beogradski profesionalci dolaze da se isključe.
             </p>
             <a
               class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary uppercase tracking-widest group-hover:gap-4 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
               href="#contact"
               aria-label="Explore Hillside Residences portfolio — contact us to learn more"
             >
-              Explore <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              Saznajte više <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </article>
@@ -366,8 +367,8 @@
             -->
             <img
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="images/product-2.jpg"
-              alt="Urban Residences — contemporary low-rise apartment building on tree-lined European street"
+              src="/images/product-2.jpg"
+              alt="Urban Residences — savremena niska stambena zgrada u evropskoj ulici sa drvoredom"
               loading="lazy"
               width="800"
               height="1000"
@@ -377,14 +378,14 @@
           <div class="mt-8">
             <h3 class="font-headline-md text-headline-md mb-4">Urban Residences</h3>
             <p class="font-body-md text-body-md text-secondary mb-6">
-              Boutique apartment buildings designed for the heart of refined European cities. The same intimate scale, the same uncompromising materials — adapted to urban life. Available across our European footprint: Cyprus, Stockholm, Warsaw, Belgrade.
+              Butik stambene zgrade osmišljene za srce profinjenih evropskih gradova. Ista intimna razmera, isti beskompromisni materijali — prilagođeni gradskom životu. Dostupne širom našeg evropskog prisustva: Kipar, Stokholm, Varšava, Beograd.
             </p>
             <a
               class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary uppercase tracking-widest group-hover:gap-4 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
               href="#contact"
               aria-label="Explore Urban Residences portfolio — contact us to learn more"
             >
-              Explore <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              Saznajte više <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </article>
@@ -402,7 +403,7 @@
     <!-- Pull quote -->
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter text-center mb-24 reveal">
       <h2 id="philosophy-heading" class="font-headline-lg text-headline-lg italic mb-4">
-        "A home is not a structure. It is the air your child breathes."
+        "Dom nije konstrukcija. To je vazduh koji vaše dete diše."
       </h2>
       <div class="w-12 h-[1px] bg-bronze mx-auto" aria-hidden="true"></div>
     </div>
@@ -410,30 +411,30 @@
     <!-- Philosophy cards -->
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter grid grid-cols-1 md:grid-cols-3 gap-gutter">
 
-      <!-- Card 1: Materials That Age With Grace -->
+      <!-- Card 1: Materijali koji lepo stare -->
       <article class="bg-stone p-12 border-t-2 border-bronze reveal" aria-labelledby="phil-1-heading">
         <span class="material-symbols-outlined text-bronze text-4xl mb-8" aria-hidden="true">diamond</span>
-        <h3 id="phil-1-heading" class="font-headline-md text-headline-md mb-6">Materials That Age With Grace</h3>
+        <h3 id="phil-1-heading" class="font-headline-md text-headline-md mb-6">Materijali koji lepo stare</h3>
         <p class="font-body-md text-body-md text-secondary">
-          Natural travertine, century-old European oak, hand-finished brass. We choose materials that become more beautiful over decades — not less. Your home tells your family's story through its surfaces.
+          Prirodni travertin, evropska hrastovina stara vek, ručno obrađeni mesing. Biramo materijale koji decenijama postaju lepši — a ne manje lepi. Vaš dom kroz svoje površine priča priču vaše porodice.
         </p>
       </article>
 
-      <!-- Card 2: Intelligence In The Background -->
+      <!-- Card 2: Inteligencija u pozadini -->
       <article class="bg-stone p-12 border-t-2 border-bronze md:mt-12 reveal" aria-labelledby="phil-2-heading">
         <span class="material-symbols-outlined text-bronze text-4xl mb-8" aria-hidden="true">auto_awesome</span>
-        <h3 id="phil-2-heading" class="font-headline-md text-headline-md mb-6">Intelligence In The Background</h3>
+        <h3 id="phil-2-heading" class="font-headline-md text-headline-md mb-6">Inteligencija u pozadini</h3>
         <p class="font-body-md text-body-md text-secondary">
-          Climate adjusts itself before you feel the change. Lighting matches the hour and your mood. Security operates silently. Technology serves the rhythm of your life — and stays out of sight.
+          Klima se prilagođava pre nego što osetite promenu. Osvetljenje prati doba dana i vaše raspoloženje. Bezbednost radi nečujno. Tehnologija služi ritmu vašeg života — i ostaje van vidokruga.
         </p>
       </article>
 
-      <!-- Card 3: Built To Outlast Us -->
+      <!-- Card 3: Građeno da nas nadživi -->
       <article class="bg-stone p-12 border-t-2 border-bronze reveal" aria-labelledby="phil-3-heading">
         <span class="material-symbols-outlined text-bronze text-4xl mb-8" aria-hidden="true">eco</span>
-        <h3 id="phil-3-heading" class="font-headline-md text-headline-md mb-6">Built To Outlast Us</h3>
+        <h3 id="phil-3-heading" class="font-headline-md text-headline-md mb-6">Građeno da nas nadživi</h3>
         <p class="font-body-md text-body-md text-secondary">
-          Solar integration, rainwater recovery, geothermal climate, A+ insulation standards. Our homes are designed for the next 100 years — for your children, and theirs. Quiet luxury includes responsibility.
+          Integracija solarne energije, prikupljanje kišnice, geotermalna klima, A+ standardi izolacije. Naši domovi projektovani su za narednih 100 godina — za vašu decu, i njihovu. Tiha raskoš podrazumeva i odgovornost.
         </p>
       </article>
 
@@ -448,10 +449,10 @@
 
     <!-- Section header -->
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter text-center mb-16 reveal">
-      <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">OUR EXPERIENCE</p>
-      <h2 id="network-heading" class="font-headline-lg text-headline-lg">Eight years of expertise. Now at home in Serbia.</h2>
+      <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">NAŠE ISKUSTVO</p>
+      <h2 id="network-heading" class="font-headline-lg text-headline-lg">Osam godina ekspertize. Sada kod kuće u Srbiji.</h2>
       <p class="mt-6 font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
-        Whether built into a Cypriot hillside or nestled in a Stockholm suburb, every Malom residence shares one principle: a home is the most personal thing a person owns. We honor that — everywhere we build.
+        Bilo da je usečena u kiparsku padinu ili smeštena u predgrađu Stokholma, svaka Malom rezidencija deli jedno načelo: dom je najličnija stvar koju čovek poseduje. To poštujemo — gde god gradimo.
       </p>
     </div>
 
@@ -465,9 +466,9 @@
         Client to provide. A vector SVG world map works well here.
       -->
       <img
-        alt="Malom Invest international presence across Cyprus, Sweden, Poland, Middle East, and Serbia"
+        alt="Međunarodno prisustvo Malom Invest-a: Kipar, Švedska, Poljska, Bliski istok i Srbija"
         class="w-full h-auto opacity-80"
-        src="images/map.jpg"
+        src="/images/map.jpg"
         loading="lazy"
         width="1200"
         height="600"
@@ -482,17 +483,17 @@
 
           <!-- Text -->
           <div class="p-8">
-            <h3 class="font-headline-lg text-headline-lg mb-6">Tatar Hill — at the highest residence in Vojvodina.</h3>
+            <h3 class="font-headline-lg text-headline-lg mb-6">Tatar Hill — najviša rezidencija u Vojvodini.</h3>
             <p class="font-body-lg text-body-lg text-secondary mb-8">
-              Tatar Hill rises on the northern slopes of Fruška Gora — the highest residential point near Novi Sad. Two boutique buildings. Twelve apartments. Surrounded by Europe's leading respiratory and cardiology institutes — independent confirmation of the cleanest air in Vojvodina. Fifteen minutes to the city center. A thousand years from its noise.
+              Tatar Hill uzdiže se na severnim padinama Fruške gore — najvišoj stambenoj tački u blizini Novog Sada. Dve butik zgrade. Dvanaest stanova. Okružen vodećim evropskim institutima za respiratorne i kardiološke bolesti — nezavisna potvrda najčistijeg vazduha u Vojvodini. Petnaest minuta do centra grada. Hiljadu godina daleko od njegove buke.
             </p>
             <button
               class="px-12 py-4 border border-primary-container text-primary-container font-label-sm uppercase tracking-widest rounded-[2px] hover:bg-primary-container hover:text-white transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-container focus-visible:outline-offset-4"
               type="button"
-              aria-label="Discover the Tatar Hill development project"
+              aria-label="Otkrijte projekat Tatar Hill"
               onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
             >
-              Discover Tatar Hill
+              Otkrijte Tatar Hill
             </button>
           </div>
 
@@ -508,8 +509,8 @@
             -->
             <img
               class="w-full h-full object-cover"
-              src="images/tatar-hill.jpg"
-              alt="Tatar Hill on Fruška Gora — Malom Invest flagship residence with panoramic view of Danube and Novi Sad"
+              src="/images/tatar-hill.jpg"
+              alt="Tatar Hill na Fruškoj gori — vodeća Malom Invest rezidencija sa panoramskim pogledom na Dunav i Novi Sad"
               loading="lazy"
               width="800"
               height="600"
@@ -530,7 +531,7 @@
   <section class="bg-warm-white py-24 border-y border-outline-variant/20" aria-labelledby="partners-heading">
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter text-center mb-12">
       <p id="partners-heading" class="font-label-sm text-label-sm text-secondary uppercase tracking-widest opacity-50">
-        Crafted With The Best
+        Stvoreno sa najboljima
       </p>
     </div>
     <div
@@ -552,7 +553,7 @@
        FUTURE VISION SECTION
        ═══════════════════════════════════════════════════════════════ -->
   <section class="bg-warm-white pt-[72px] pb-section_padding" aria-labelledby="vision-heading">
-    <h2 id="vision-heading" class="font-headline-lg text-headline-lg text-on-surface text-center mb-16">Investments In The Future.</h2>
+    <h2 id="vision-heading" class="font-headline-lg text-headline-lg text-on-surface text-center mb-16">Ulaganje u budućnost.</h2>
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter grid grid-cols-1 md:grid-cols-3 gap-gutter">
 
       <div class="text-center reveal">
@@ -562,8 +563,8 @@
           </div>
         </div>
         <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Net-zero new builds year: 2028">2028</p>
-        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Net-Zero New Builds</p>
-        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">All homes from 2028 will operate with zero carbon emissions.</p>
+        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Net-Zero gradnja</p>
+        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Svi domovi od 2028. godine funkcionisaće sa nultom emisijom ugljenika.</p>
       </div>
 
       <div class="text-center reveal">
@@ -573,8 +574,8 @@
           </div>
         </div>
         <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Three new residences in the Balkans">+3</p>
-        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">New Residences In The Balkans</p>
-        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Three more boutique buildings over five years.</p>
+        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Nove rezidencije na Balkanu</p>
+        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Još tri butik zgrade u narednih pet godina.</p>
       </div>
 
       <div class="text-center reveal">
@@ -584,8 +585,8 @@
           </div>
         </div>
         <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Concierge service: 5 stars">5★&#xFE0E;</p>
-        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Concierge Service</p>
-        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Personal property management for every Malom home, in every city.</p>
+        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Concierge usluga</p>
+        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Lično upravljanje nekretninom za svaki Malom dom, u svakom gradu.</p>
       </div>
 
     </div>
@@ -601,21 +602,21 @@
       <!-- Contact info -->
       <div class="reveal">
         <h2 id="contact-heading" class="font-headline-lg text-headline-lg mb-6">
-          Talk with us about your next home.
+          Razgovarajmo o vašem sledećem domu.
         </h2>
         <p class="font-body-lg text-body-lg text-white/70 mb-12">
-          Whether you're considering Tatar Hill or curious about future projects — let's start the conversation.
+          Bilo da razmišljate o Tatar Hill-u ili vas zanimaju budući projekti — započnimo razgovor.
         </p>
         <div class="space-y-8">
           <div>
-            <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Headquarters</p>
+            <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Sedište</p>
             <address class="font-body-lg not-italic">
               Limassol Marina, Block A<br />
-              Cyprus, EU 3601
+              Kipar, EU 3601
             </address>
           </div>
           <div>
-            <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Inquiries</p>
+            <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Upiti</p>
             <p class="font-body-lg">
               <a href="mailto:concierge@malominvest.com" class="hover:text-primary-fixed-dim transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-2">
                 concierge@malominvest.com
@@ -665,13 +666,13 @@
           aria-label="Investment inquiry form"
         >
           <!-- Hidden subject for Formspree email threading -->
-          <input type="hidden" name="_subject" value="New Investment Inquiry — Malom Invest" />
+          <input type="hidden" name="_subject" value="Novi upit — Malom Invest (SR sajt)" />
           <!-- Redirect honeypot (anti-spam) -->
           <input type="text" name="_gotcha" class="hidden" aria-hidden="true" tabindex="-1" />
 
           <div class="space-y-12">
 
-            <!-- Full Name -->
+            <!-- Ime i prezime -->
             <div class="relative form-field">
               <input
                 class="peer w-full bg-transparent border-0 border-b border-white/20 px-0 py-4 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-primary-container [&:not(:placeholder-shown)]:border-b-2 [&:not(:placeholder-shown)]:border-primary-container transition-all placeholder:text-transparent"
@@ -687,10 +688,10 @@
               <label
                 class="absolute left-0 top-4 text-white/50 font-label-sm uppercase tracking-widest transition-all duration-300 peer-focus:-top-4 peer-focus:text-primary-fixed-dim peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]"
                 for="name"
-              >Full Name</label>
+              >Ime i prezime</label>
             </div>
 
-            <!-- Email Address -->
+            <!-- Imejl adresa -->
             <div class="relative form-field">
               <input
                 class="peer w-full bg-transparent border-0 border-b border-white/20 px-0 py-4 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-primary-container [&:not(:placeholder-shown)]:border-b-2 [&:not(:placeholder-shown)]:border-primary-container transition-all placeholder:text-transparent"
@@ -706,10 +707,10 @@
               <label
                 class="absolute left-0 top-4 text-white/50 font-label-sm uppercase tracking-widest transition-all duration-300 peer-focus:-top-4 peer-focus:text-primary-fixed-dim peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]"
                 for="email"
-              >Email Address</label>
+              >Imejl adresa</label>
             </div>
 
-            <!-- Investment Interest -->
+            <!-- Vaše interesovanje -->
             <div class="relative form-field">
               <input
                 class="peer w-full bg-transparent border-0 border-b border-white/20 px-0 py-4 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-primary-container [&:not(:placeholder-shown)]:border-b-2 [&:not(:placeholder-shown)]:border-primary-container transition-all placeholder:text-transparent"
@@ -724,12 +725,12 @@
               <label
                 class="absolute left-0 top-4 text-white/50 font-label-sm uppercase tracking-widest transition-all duration-300 peer-focus:-top-4 peer-focus:text-primary-fixed-dim peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]"
                 for="interest"
-              >Investment Interest</label>
+              >Vaše interesovanje</label>
             </div>
 
             <!-- Error message -->
             <p id="form-error" class="hidden text-red-400 font-label-sm text-[11px] uppercase tracking-widest" role="alert" aria-live="polite">
-              Please fill in all required fields with valid information.
+              Molimo popunite sva obavezna polja ispravnim podacima.
             </p>
 
             <!-- Submit button -->
@@ -737,9 +738,9 @@
               id="btn-submit"
               class="w-full py-5 bg-primary text-white font-label-sm uppercase tracking-widest hover:bg-primary-container transition-all rounded-[2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4 disabled:opacity-50 disabled:cursor-not-allowed"
               type="submit"
-              aria-label="Begin the conversation"
+              aria-label="Započnite razgovor"
             >
-              Begin the Conversation
+              Započnite razgovor
             </button>
 
           </div>
@@ -756,9 +757,9 @@
           <div class="w-12 h-12 mx-auto mb-6 flex items-center justify-center rotate-45 border border-primary-fixed-dim text-primary-fixed-dim" aria-hidden="true">
             <span class="material-symbols-outlined -rotate-45 text-lg">check</span>
           </div>
-          <h3 class="font-headline-md text-headline-md mb-4">Thank you — we'll be in touch.</h3>
+          <h3 class="font-headline-md text-headline-md mb-4">Hvala — javićemo vam se.</h3>
           <p class="font-body-md text-body-md text-white/70">
-            Your message has been received. A member of our team will reach out personally within 24 hours.
+            Vaša poruka je primljena. Član našeg tima lično će vam se obratiti u roku od 24 sata.
           </p>
         </div>
 
@@ -775,39 +776,39 @@
 
       <!-- Brand -->
       <div class="flex flex-col gap-6">
-        <a href="/" aria-label="Malom Invest — Home">
+        <a href="/sr/" aria-label="Malom Invest — Home">
           <img
             alt="Malom Invest"
             class="h-10 w-auto"
-            src="logos/1.png"
+            src="/logos/1.png"
             width="200"
             height="40"
             loading="lazy"
           />
         </a>
         <p class="font-body-md text-body-md text-secondary max-w-sm">
-          <small>© <span id="footer-year">2026</span> Malom Invest. All rights reserved.<br />Homes that live with you. Quiet Luxury.</small>
+          <small>© <span id="footer-year">2026</span> Malom Invest. Sva prava zadržana.<br />Domovi koji žive sa vama. Tiha raskoš.</small>
         </p>
       </div>
 
       <!-- Footer nav -->
       <nav class="flex flex-col md:flex-row gap-12 mt-8 md:mt-0" aria-label="Footer navigation">
         <div class="flex flex-col gap-4">
-          <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Legal</p>
+          <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Pravne informacije</p>
           <a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" href="/privacy">
-            Privacy Policy
+            Politika privatnosti
           </a>
           <a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" href="/terms">
-            Terms of Service
+            Uslovi korišćenja
           </a>
         </div>
         <div class="flex flex-col gap-4">
-          <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Compliance</p>
+          <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Usklađenost</p>
           <a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" href="/regulatory">
-            Regulatory Disclosures
+            Regulatorne informacije
           </a>
           <a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" href="/sustainability">
-            Sustainability
+            Održivost
           </a>
         </div>
       </nav>
@@ -817,7 +818,7 @@
 
 
   <!-- ── Main application script ──────────────────────────────── -->
-  <script src="src/main.js" defer></script>
+  <script src="/src/main.js" defer></script>
 
 </body>
 </html>
