@@ -22,3 +22,5 @@ dist/
 # NOTE: public/dist/output.css IS committed to git.
 # Vercel runs `npm run build` and regenerates it, but having it
 # in the repo means local `npx serve public` works without a build step.
+
+.vercel
