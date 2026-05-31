@@ -1,6 +1,24 @@
+# Dependencies
 node_modules/
+
+# OS artifacts
 .DS_Store
 Thumbs.db
+
+# Logs
 *.log
+
+# Environment variables (never commit secrets)
 .env
 .env.local
+.env.production
+
+# Legacy dist/ at root (build now outputs to public/dist/)
+dist/
+
+# Vercel local dev
+.vercel/
+
+# NOTE: public/dist/output.css IS committed to git.
+# Vercel runs `npm run build` and regenerates it, but having it
+# in the repo means local `npx serve public` works without a build step.
