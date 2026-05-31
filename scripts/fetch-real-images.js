@@ -1,9 +1,8 @@
 /**
  * fetch-real-images.js
  * ─────────────────────────────────────────────────────────────────────────
- * Replaces placeholder SVG images with real premium photographs using the
- * Pexels API. Generates a custom vector map.png outlined world map with
- * markers, rasterizes it, and verifies files are valid.
+ * Replaces corporate-style photos with premium cozy residential photography
+ * from Pexels API based on new copywriting focus ("premium home for life").
  *
  * Usage:  node scripts/fetch-real-images.js
  * Deps:   sharp (already installed)
@@ -21,47 +20,57 @@ const sharp = require('sharp');
 const PEXELS_API_KEY = 'A9AB8fccKk8MdBx2hPBccM04iCZKW2lja9kZbWseoV6axRZB90NZF0Hb';
 const IMAGES_DIR = path.join(__dirname, '..', 'public', 'images');
 
-// Image targets and search queries
+// Image targets and search queries with sequential fallbacks
 const PHOTO_TARGETS = [
   {
     file: 'hero.jpg',
-    query: 'minimalist architecture dusk concrete glass building blue hour',
+    queries: [
+      'luxury home interior warm light evening cozy',
+      'modern villa exterior sunset warm lights',
+      'premium residential architecture twilight'
+    ],
     orientation: 'landscape',
     width: 1920,
     height: 1080,
-    note: 'Hero background — minimalist architecture at dusk'
+    note: 'Hero background — warm evening home space'
   },
   {
     file: 'product-1.jpg',
-    query: 'scandinavian modern villa wood facade nordic architecture',
+    queries: [
+      'luxury living room natural wood stone fireplace',
+      'modern villa interior natural materials',
+      'premium home living space warm wood'
+    ],
     orientation: 'portrait',
     width: 800,
     height: 1000,
-    note: 'Elite Residential — Scandinavian luxury villa'
+    note: 'Private Residences — luxury living room with wood & stone'
   },
   {
     file: 'product-2.jpg',
-    query: 'minimalist commercial atrium glass interior architecture',
+    queries: [
+      'premium apartment bedroom morning light natural materials',
+      'luxury apartment interior bedroom soft light',
+      'boutique residential interior bedroom modern'
+    ],
     orientation: 'portrait',
     width: 800,
     height: 1000,
-    note: 'Commercial Icons — minimalist atrium'
+    note: 'Boutique Apartments — refined bedroom space'
   },
   {
     file: 'tatar-hill.jpg',
-    query: 'modern villa hillside mediterranean sunset architecture',
+    queries: [
+      'mediterranean villa stone wood terrace sunset',
+      'luxury villa hillside sunset stone facade',
+      'modern villa balkan architecture terrace'
+    ],
     orientation: 'landscape',
     width: 800,
     height: 600,
-    note: 'Tatar Hill — modern villa on hillside at sunset'
+    note: 'Tatar Hill — premium villa terrace at sunset'
   }
 ];
-
-const FALLBACK_QUERY = 'modern architecture';
-
-// Colors (Design System tokens)
-const TATAR_SAGE = '#A2A094';
-const MALOM_BLUE = '#4A728C';
 
 // ── Utility: Human Readable File Size ────────────────────────────────────
 function humanSize(bytes) {
@@ -107,7 +116,7 @@ async function downloadToBuffer(url) {
 // ── Main Execution ───────────────────────────────────────────────────────
 async function main() {
   console.log('\n=====================================================');
-  console.log('   Malom Invest — Pexels Photo Replacer & Verifier');
+  console.log('   Malom Invest — Pexels Photographic Overhaul');
   console.log('=====================================================\n');
 
   // Ensure output directory exists
@@ -121,39 +130,42 @@ async function main() {
   for (const target of PHOTO_TARGETS) {
     const destPath = path.join(IMAGES_DIR, target.file);
     console.log(`\n• Processing ${target.file}...`);
-    console.log(`  Query: "${target.query}"`);
 
     let photoData = null;
-    try {
-      photoData = await searchPexels(target.query, target.orientation);
-    } catch (err) {
-      console.log(`  ⚠ Search failed: ${err.message}. Trying fallback...`);
+    // Try queries in order until one returns a photo
+    for (let i = 0; i < target.queries.length; i++) {
+      const q = target.queries[i];
+      console.log(`  Trying query [${i + 1}/${target.queries.length}]: "${q}"...`);
+      try {
+        photoData = await searchPexels(q, target.orientation);
+        if (photoData) {
+          console.log(`  ✓ Found photo #${photoData.id} under query: "${q}"`);
+          break;
+        }
+      } catch (err) {
+        console.warn(`  ⚠ Search failed: ${err.message}`);
+      }
     }
 
     if (!photoData) {
-      console.log(`  ⚠ No results for primary query. Trying fallback query: "${FALLBACK_QUERY}"...`);
-      photoData = await searchPexels(FALLBACK_QUERY, target.orientation);
+      throw new Error(`Could not find any photos on Pexels for target: "${target.file}"`);
     }
 
-    if (!photoData) {
-      throw new Error(`Could not find any photos on Pexels for "${target.file}"`);
-    }
-
-    const downloadUrl = photoData.src.large2x || photoData.src.large || photoData.src.original;
-    console.log(`  Found photo #${photoData.id} by ${photoData.photographer}`);
+    const downloadUrl = photoData.src.original || photoData.src.large2x || photoData.src.large;
+    console.log(`  Photographer: ${photoData.photographer}`);
     console.log(`  Downloading from: ${downloadUrl}`);
 
     const imageBuffer = await downloadToBuffer(downloadUrl);
     console.log(`  Downloaded raw buffer size: ${humanSize(imageBuffer.length)}`);
 
-    // Cover-resize to expected dimensions
+    // Cover-resize to expected dimensions and save
     console.log(`  Resizing & converting to JPEG ${target.width}x${target.height}...`);
     await sharp(imageBuffer)
       .resize(target.width, target.height, {
         fit: 'cover',
         position: 'center'
       })
-      .jpeg({ quality: 85, mozjpeg: true })
+      .jpeg({ quality: target.file === 'tatar-hill.jpg' ? 98 : 90, mozjpeg: true })
       .toFile(destPath);
 
     // Save for report
@@ -188,82 +200,7 @@ async function main() {
     srcUrl: heroAttr.srcUrl
   });
 
-  // 3. Generate Custom map.png SVG and rasterize to 1200x600 PNG
-  const mapPath = path.join(IMAGES_DIR, 'map.png');
-  console.log('\n• Generating custom vector map.png...');
-  const mapSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
-    <!-- Thin contour lines for continents in Tatar Sage (#A2A094) -->
-    <!-- North & South America -->
-    <path d="M 200,110 Q 230,100 250,120 L 255,160 Q 265,190 260,220 L 240,260 Q 230,280 235,300 L 250,340 Q 260,380 245,420 L 230,460 Q 210,480 190,460 L 180,430 Q 175,400 185,370 L 195,330 Q 200,300 190,270 L 175,230 Q 165,200 170,160 L 185,120 Z"
-          fill="none" stroke="${TATAR_SAGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-    
-    <!-- Greenland -->
-    <path d="M 330,60 Q 360,50 380,70 L 370,100 L 340,90 Z"
-          fill="none" stroke="${TATAR_SAGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-
-    <!-- Europe & Africa -->
-    <path d="M 410,120 Q 430,100 460,115 L 470,180 Q 450,200 440,230 L 420,280 Q 400,320 390,360 L 380,420 Q 370,450 360,460 L 340,440 Q 330,400 340,370 L 350,340 Q 360,300 370,270 L 380,220 Q 390,180 410,120 Z"
-          fill="none" stroke="${TATAR_SAGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-
-    <!-- Asia -->
-    <path d="M 520,90 Q 580,80 650,95 L 720,110 Q 780,125 810,140 L 820,180 Q 800,210 770,220 L 730,230 Q 700,240 680,260 L 650,280 Q 620,270 600,255 L 570,240 Q 540,220 525,200 L 510,170 Q 505,140 520,90 Z"
-          fill="none" stroke="${TATAR_SAGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-
-    <!-- Australia -->
-    <path d="M 730,350 Q 770,340 800,355 L 820,390 Q 815,420 790,430 L 755,435 Q 725,425 715,400 L 720,370 Z"
-          fill="none" stroke="${TATAR_SAGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-
-    <!-- Connection lines between locations in Malom Blue (#4A728C) -->
-    <line x1="470" y1="115" x2="488" y2="130" stroke="${MALOM_BLUE}" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.6"/>
-    <line x1="488" y1="130" x2="493" y2="148" stroke="${MALOM_BLUE}" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.6"/>
-    <line x1="493" y1="148" x2="510" y2="185" stroke="${MALOM_BLUE}" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.6"/>
-    <line x1="510" y1="185" x2="555" y2="205" stroke="${MALOM_BLUE}" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.6"/>
-
-    <!-- Branded Diamond Markers: Rotated <rect> elements in Malom Blue (#4A728C) -->
-    <!-- Sweden -->
-    <g transform="translate(470, 115)">
-      <rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="${MALOM_BLUE}" />
-    </g>
-    <text x="470" y="100" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="${MALOM_BLUE}" text-anchor="middle">Sweden</text>
-
-    <!-- Poland -->
-    <g transform="translate(488, 130)">
-      <rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="${MALOM_BLUE}" />
-    </g>
-    <text x="488" y="145" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="${MALOM_BLUE}" text-anchor="middle">Poland</text>
-
-    <!-- Serbia -->
-    <g transform="translate(493, 148)">
-      <rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="${MALOM_BLUE}" />
-    </g>
-    <text x="445" y="152" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="${MALOM_BLUE}" text-anchor="end">Serbia</text>
-
-    <!-- Cyprus -->
-    <g transform="translate(510, 185)">
-      <rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="${MALOM_BLUE}" />
-    </g>
-    <text x="495" y="189" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="${MALOM_BLUE}" text-anchor="end">Cyprus</text>
-
-    <!-- UAE -->
-    <g transform="translate(555, 205)">
-      <rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="${MALOM_BLUE}" />
-    </g>
-    <text x="570" y="209" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="${MALOM_BLUE}" text-anchor="start">UAE</text>
-  </svg>`;
-
-  await sharp(Buffer.from(mapSvg))
-    .png()
-    .toFile(mapPath);
-
-  attributionList.push({
-    file: 'map.png',
-    pexelsId: 'N/A',
-    photographer: 'Vector (Generated SVG)',
-    photographerUrl: '',
-    srcUrl: 'Custom SVG world map'
-  });
-
-  // 4. File Verification
+  // 3. File Verification
   console.log('\n=====================================================');
   console.log('   Verification Report');
   console.log('=====================================================\n');
@@ -272,34 +209,25 @@ async function main() {
   for (const attr of attributionList) {
     const filePath = path.join(IMAGES_DIR, attr.file);
 
-    // 4.1 Check File Existence and Size
+    // 3.1 Check File Existence
     if (!fs.existsSync(filePath)) {
       console.error(`  [FAIL] ${attr.file} does not exist`);
       allValid = false;
       continue;
     }
     const size = fs.statSync(filePath).size;
-    const isSizeOk = attr.file === 'map.png' ? true : size > 50 * 1024; // 50 KB (only for photos, map can be smaller)
+    const isSizeOk = size > 80 * 1024; // 80 KB minimum size constraint for photos
 
-    // 4.2 Check Format Magic Bytes
+    // 3.2 Check Format Magic Bytes (FF D8 FF for JPEGs)
     const fd = fs.openSync(filePath, 'r');
-    const magic = Buffer.alloc(4);
-    fs.readSync(fd, magic, 0, 4, 0);
+    const magic = Buffer.alloc(3);
+    fs.readSync(fd, magic, 0, 3, 0);
     fs.closeSync(fd);
 
-    let formatValid = false;
-    let formatName = '';
-    if (attr.file.endsWith('.jpg')) {
-      // JPEG magic: FF D8
-      formatValid = magic[0] === 0xFF && magic[1] === 0xD8;
-      formatName = 'JPEG';
-    } else if (attr.file.endsWith('.png')) {
-      // PNG magic: 89 50 4E 47
-      formatValid = magic[0] === 0x89 && magic[1] === 0x50 && magic[2] === 0x4E && magic[3] === 0x47;
-      formatName = 'PNG';
-    }
+    const formatValid = magic[0] === 0xFF && magic[1] === 0xD8 && magic[2] === 0xFF;
+    const formatName = 'JPEG';
 
-    // 4.3 Check Dimensions via sharp
+    // 3.3 Check Dimensions via sharp
     let dimsOk = false;
     let dimsStr = 'unknown';
     try {
@@ -309,7 +237,6 @@ async function main() {
       else if (attr.file === 'product-1.jpg' || attr.file === 'product-2.jpg') dimsOk = meta.width === 800 && meta.height === 1000;
       else if (attr.file === 'tatar-hill.jpg') dimsOk = meta.width === 800 && meta.height === 600;
       else if (attr.file === 'og-image.jpg') dimsOk = meta.width === 1200 && meta.height === 630;
-      else if (attr.file === 'map.png') dimsOk = meta.width === 1200 && meta.height === 600;
     } catch (e) {
       console.error(`  ⚠ Could not read dimensions for ${attr.file}: ${e.message}`);
     }
@@ -319,12 +246,12 @@ async function main() {
 
     console.log(`  File: ${attr.file}`);
     console.log(`    Format:    ${formatName} (${formatValid ? 'VALID' : 'INVALID'})`);
-    console.log(`    Size:      ${humanSize(size)} (${isSizeOk ? 'OK (>50KB)' : 'FAIL (<50KB)'})`);
+    console.log(`    Size:      ${humanSize(size)} (${isSizeOk ? 'OK (>80KB)' : 'FAIL (<80KB)'})`);
     console.log(`    Dimensions: ${dimsStr} (${dimsOk ? 'OK' : 'FAIL'})`);
     console.log(`    Status:    ${fileStatus ? '✅ PASSED' : '❌ FAILED'}\n`);
   }
 
-  // 5. Output Final Markdown Attribution Table
+  // 4. Output Final Markdown Attribution Table
   console.log('=====================================================');
   console.log('   Pexels Photo Attribution / Records');
   console.log('=====================================================\n');
@@ -337,7 +264,7 @@ async function main() {
   }
 
   if (allValid) {
-    console.log('\n✅ All assets downloaded, processed, and verified successfully!');
+    console.log('\n✅ All photography assets downloaded, processed, and verified successfully!');
   } else {
     console.error('\n❌ Verification failed. Please inspect errors above.');
     process.exit(1);
