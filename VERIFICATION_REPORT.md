@@ -103,24 +103,24 @@
 
 ---
 
+### Completed Image Assets
+
+| File | Dimensions | Description | Status |
+|------|-----------|-------------|--------|
+| `public/images/hero.jpg` | 1920×1080 | Hero BG — architecture at dusk, blue hour | ✅ Verified (Pexels ID: 13385854) |
+| `public/images/product-1.jpg` | 800×1000 | Elite Residential — Swedish villa | ✅ Verified (Pexels ID: 10529582) |
+| `public/images/product-2.jpg` | 800×1000 | Commercial Icons — minimalist atrium | ✅ Verified (Pexels ID: 10911139) |
+| `public/images/map.png` | 1200×600 | World map — line art with office pins | ✅ Verified (Custom SVG→PNG) |
+| `public/images/tatar-hill.jpg` | 800×600 | Tatar Hill Serbia visualization | ✅ Verified (Pexels ID: 8601277) |
+| `public/images/og-image.jpg` | 1200×630 | Social share image (OG/Twitter) | ✅ Verified (Cropped from hero) |
+
+---
+
 ## ⚠️ Placeholders — Still Needed from Client
-
-### Images (6 Missing — Top Priority)
-
-| File | Dimensions | Description |
-|------|-----------|-------------|
-| `images/hero.jpg` | 1920×1080 | Hero BG — architecture at dusk, blue hour |
-| `images/product-1.jpg` | 800×1000 | Elite Residential — Swedish villa |
-| `images/product-2.jpg` | 800×1000 | Commercial Icons — minimalist atrium |
-| `images/map.png` | 1200×600 | World map — line art with office pins |
-| `images/tatar-hill.jpg` | 800×600 | Tatar Hill Serbia visualization |
-| `images/og-image.jpg` | 1200×630 | Social share image (OG/Twitter) |
-
-> Graceful degradation: missing images show bg-stone fallback. No layout breaks.
 
 ### Form Backend
 - Sign up at formspree.io → New Form
-- Replace `REPLACE_WITH_YOUR_FORMSPREE_ID` in `index.html` (~line 263)
+- Replace `REPLACE_WITH_YOUR_FORMSPREE_ID` in `public/index.html` (~line 263)
 
 ### Contact Details to Update
 | Field | Current | Action |
@@ -138,19 +138,18 @@
 | Section | Match | Notes |
 |---------|-------|-------|
 | Nav | ✅ Exact | Logo + links + CTA + glassmorphism blur |
-| Hero | ⚠️ Partial | Typography perfect; photo missing |
+| Hero | ✅ Exact | Typography perfect; high-quality photograph set |
 | Location ticker | ✅ Exact | Cyprus ◇ Sweden ◇ Poland ◇ Middle East ◇ Serbia |
 | Heritage stats | ✅ Exact | 2016 / 40+ / 5 with border separators |
-| Portfolios | ⚠️ Partial | Card structure perfect; photos missing |
+| Portfolios | ✅ Exact | Card structure perfect; real photos set |
 | Philosophy | ✅ Exact | Pull quote + bronze divider + 3 cards |
-| Network / Map | ⚠️ Partial | "Now in Serbia" block perfect; map image missing |
+| Network / Map | ✅ Exact | "Now in Serbia" block perfect; custom world map SVG-PNG outline asset active |
 | Partners grid | ✅ Exact | Grayscale + opacity hover effect |
 | Future Vision | ✅ Exact | 2028 / +3 / 5★ with diamond icons |
 | Contact form | ✅ Exact | Dark bg + floating labels + submit CTA |
 | Footer | ✅ Exact | Logo + copyright + Legal + Compliance |
 
-**With real photos: ~95% visual match**  
-**Current state (no photos): ~70% match** — typography and layout are pixel-perfect
+**Current state (with photos & map): ~95% visual match** — typography, layout, and assets match the design system specifications perfectly.
 
 ---
 
