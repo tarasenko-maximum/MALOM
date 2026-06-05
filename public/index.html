@@ -8,7 +8,7 @@
   for easy extraction into a translation layer.
   When multilang is added, swap <html lang="en"> to the active locale.
 -->
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-[96px]">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -76,15 +76,13 @@
     "foundingDate": "2016",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Limassol Marina, Block A",
-      "addressLocality": "Limassol",
-      "postalCode": "3601",
-      "addressCountry": "CY"
+      "streetAddress": "Železnička 20",
+      "addressLocality": "Novi Sad",
+      "postalCode": "21000",
+      "addressCountry": "RS"
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+357-25-000-000",
-      "email": "concierge@malominvest.com",
       "contactType": "Sales"
     },
     "areaServed": ["Cyprus", "Sweden", "Poland", "Serbia", "Middle East"],
@@ -153,7 +151,7 @@
         <span class="flex items-center gap-4 font-label-sm text-label-sm uppercase tracking-widest" aria-label="Language">
           <a class="text-secondary hover:text-primary transition-colors" href="/sr/" hreflang="sr-Latn">SR</a>
           <span class="text-secondary opacity-50" aria-hidden="true">/</span>
-          <span class="text-primary" aria-current="true">EN</span>
+          <span class="text-primary font-bold" aria-current="true">EN</span>
         </span>
       </div>
 
@@ -196,7 +194,7 @@
       <div class="flex items-center gap-4 font-label-sm text-label-sm uppercase tracking-widest pt-4" aria-label="Language">
         <a class="text-secondary hover:text-primary transition-colors" href="/sr/" hreflang="sr-Latn">SR</a>
         <span class="text-secondary opacity-50" aria-hidden="true">/</span>
-        <span class="text-primary" aria-current="true">EN</span>
+        <span class="text-primary font-bold" aria-current="true">EN</span>
       </div>
     </div>
   </nav>
@@ -240,7 +238,7 @@
       <div class="mt-12 flex flex-col items-center gap-8">
         <button
           id="btn-explore"
-          class="px-12 py-4 border border-white text-white font-label-sm uppercase tracking-widest rounded-[2px] hover:bg-white hover:text-primary transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
+          class="px-12 py-4 bg-white text-on-surface font-label-sm uppercase tracking-widest rounded-[2px] shadow-lg hover:bg-white/90 active:scale-95 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
           type="button"
           aria-label="Explore our property portfolios"
         >
@@ -415,7 +413,7 @@
         <span class="material-symbols-outlined text-bronze text-4xl mb-8" aria-hidden="true">diamond</span>
         <h3 id="phil-1-heading" class="font-headline-md text-headline-md mb-6">Materials That Age With Grace</h3>
         <p class="font-body-md text-body-md text-secondary">
-          Natural travertine, century-old European oak, hand-finished brass. We choose materials that become more beautiful over decades — not less. Your home tells your family's story through its surfaces.
+          Natural travertine, century-old European oak, hand-finished brass — materials that grow more beautiful over decades, not less. Interior walls use Ytong Fono acoustic aerated-concrete blocks, engineered for quiet between rooms and homes. Your home tells your family's story through its surfaces.
         </p>
       </article>
 
@@ -424,7 +422,7 @@
         <span class="material-symbols-outlined text-bronze text-4xl mb-8" aria-hidden="true">auto_awesome</span>
         <h3 id="phil-2-heading" class="font-headline-md text-headline-md mb-6">Intelligence In The Background</h3>
         <p class="font-body-md text-body-md text-secondary">
-          Climate adjusts itself before you feel the change. Lighting matches the hour and your mood. Security operates silently. Technology serves the rhythm of your life — and stays out of sight.
+          Every home runs on KNX — the open, worldwide building-automation standard. One integrated system manages climate, lighting, blinds, security and energy, independent of any single vendor. Aquaphor multi-stage water filtration delivers clean, great-tasting water straight from the tap. Technology serves the rhythm of your life — and stays out of sight.
         </p>
       </article>
 
@@ -533,17 +531,8 @@
         Crafted With The Best
       </p>
     </div>
-    <div
-      class="max-w-max_width mx-auto px-margin_mobile md:px-gutter grid grid-cols-3 gap-y-12 gap-x-6 md:gap-y-16 md:gap-x-12 items-center justify-items-center text-center grayscale opacity-40 hover:opacity-100 transition-opacity duration-700"
-      role="list"
-      aria-label="Partner companies"
-    >
-      <span class="font-headline-md font-bold tracking-tighter" role="listitem">ARCHI.GROUP</span>
-      <span class="font-headline-md font-light italic"           role="listitem">StructureCo.</span>
-      <span class="font-headline-md tracking-widest uppercase text-lg" role="listitem">Nordic Equity</span>
-      <span class="font-headline-md font-bold"                  role="listitem">LUMIERE</span>
-      <span class="font-headline-md tracking-tighter"           role="listitem">S.ESTATES</span>
-      <span class="font-headline-md tracking-widest uppercase text-lg" role="listitem">ATELIER NORD</span>
+    <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter text-center">
+      <p class="font-body-md text-body-md text-secondary opacity-60">In collaboration with selected local and European partners.</p>
     </div>
   </section>
 
@@ -561,9 +550,9 @@
             <span class="material-symbols-outlined -rotate-45 text-lg">history_edu</span>
           </div>
         </div>
-        <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Net-zero new builds year: 2028">2028</p>
-        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Net-Zero New Builds</p>
-        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">All homes from 2028 will operate with zero carbon emissions.</p>
+        <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Built to European Union standards">EU</p>
+        <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Built to EU Standards</p>
+        <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Every Malom home is built to European Union construction and energy-efficiency standards — the benchmark we hold ourselves to.</p>
       </div>
 
       <div class="text-center reveal">
@@ -580,10 +569,10 @@
       <div class="text-center reveal">
         <div class="mb-8 flex justify-center" aria-hidden="true">
           <div class="w-12 h-12 flex items-center justify-center rotate-45 border border-primary text-primary">
-            <span class="material-symbols-outlined -rotate-45 text-lg">grade</span>
+            <span class="material-symbols-outlined -rotate-45 text-lg">star</span>
           </div>
         </div>
-        <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Concierge service: 5 stars">5★&#xFE0E;</p>
+        <p class="font-display-lg text-display-lg text-primary mb-4" aria-label="Concierge service: 5 stars">5</p>
         <p class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] font-semibold">Concierge Service</p>
         <p class="mt-4 font-body-md text-body-md text-secondary max-w-xs mx-auto">Personal property management for every Malom home, in every city.</p>
       </div>
@@ -610,35 +599,20 @@
           <div>
             <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Headquarters</p>
             <address class="font-body-lg not-italic">
-              Limassol Marina, Block A<br />
-              Cyprus, EU 3601
+              Železnička 20<br />
+              21000 Novi Sad, Serbia
             </address>
-          </div>
-          <div>
-            <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Inquiries</p>
-            <p class="font-body-lg">
-              <a href="mailto:concierge@malominvest.com" class="hover:text-primary-fixed-dim transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-2">
-                concierge@malominvest.com
-              </a><br />
-              <a href="tel:+35725000000" class="hover:text-primary-fixed-dim transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-2">
-                +357 25 000 000
-              </a>
-            </p>
           </div>
           <div class="flex gap-6 pt-4">
             <a
               class="hover:text-primary-fixed-dim transition-colors font-label-sm uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4"
-              href="https://www.linkedin.com/company/malom-invest"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Malom Invest on LinkedIn (opens in new tab)"
+              href="#"
+              aria-label="Malom Invest on LinkedIn"
             >LinkedIn</a>
             <a
               class="hover:text-primary-fixed-dim transition-colors font-label-sm uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4"
-              href="https://www.instagram.com/malominvest"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Malom Invest on Instagram (opens in new tab)"
+              href="#"
+              aria-label="Malom Invest on Instagram"
             >Instagram</a>
           </div>
         </div>

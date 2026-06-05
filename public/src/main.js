@@ -27,69 +27,12 @@
 })();
 
 
-/* ── 2. Smooth scroll for anchor links & custom CTA buttons ────────────── */
+/* ── 2. Custom CTA buttons (native scroll handles anchor links) ─────────── */
 (function () {
   'use strict';
-
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
-
-  function smoothScrollTo(targetY, duration) {
-    var startY = window.scrollY;
-    var difference = targetY - startY;
-    var startTime = performance.now();
-
-    function step(timestamp) {
-      var progress = (timestamp - startTime) / duration;
-      if (progress > 1) progress = 1;
-      
-      var ease = easeInOutCubic(progress);
-      window.scrollTo(0, startY + difference * ease);
-
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    }
-
-    window.requestAnimationFrame(step);
-  }
-
-  // Anchor links smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      var navHeight = 80; // matches h-20 = 5rem = 80px
-      var top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-      smoothScrollTo(top, 1600);
-    });
-  });
-
-  // "Inquire" button scrolls to contact form
-  var inquireBtn = document.getElementById('btn-inquire');
-  if (inquireBtn) {
-    inquireBtn.addEventListener('click', function () {
-      var contactSection = document.getElementById('contact');
-      if (!contactSection) return;
-      var navHeight = 80;
-      var top = contactSection.getBoundingClientRect().top + window.scrollY - navHeight;
-      smoothScrollTo(top, 1600);
-    });
-  }
-
-  // "Explore Estates" button scrolls to portfolios
-  var exploreBtn = document.getElementById('btn-explore');
-  if (exploreBtn) {
-    exploreBtn.addEventListener('click', function () {
-      var portfoliosSection = document.getElementById('portfolios');
-      if (!portfoliosSection) return;
-      var navHeight = 80;
-      var top = portfoliosSection.getBoundingClientRect().top + window.scrollY - navHeight;
-      smoothScrollTo(top, 1600);
-    });
-  }
+  function goTo(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  var i=document.getElementById('btn-inquire'); if(i) i.addEventListener('click',function(){goTo('contact');});
+  var e=document.getElementById('btn-explore'); if(e) e.addEventListener('click',function(){goTo('portfolios');});
 })();
 
 
