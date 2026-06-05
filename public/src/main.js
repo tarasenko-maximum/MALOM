@@ -3,28 +3,8 @@
    Reveal-on-scroll + smooth scroll + contact form (Formspree + validation)
    ───────────────────────────────────────────────────────────────────────── */
 
-/* ── 1. Reveal-on-scroll via IntersectionObserver ──────────────────────── */
-(function () {
-  'use strict';
-
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px',
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target); // fire once only
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    observer.observe(el);
-  });
-})();
+/* ── 1. Reveal-on-scroll via IntersectionObserver (reveal once) ─────────── */
+(function(){'use strict';var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)||!els.length){els.forEach(function(e){e.classList.add('is-visible');});return;}var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('is-visible');io.unobserve(x.target);}});},{threshold:0.12,rootMargin:'0px 0px -10% 0px'});els.forEach(function(e){io.observe(e);});})();
 
 
 /* ── 2. Custom CTA buttons (native scroll handles anchor links) ─────────── */
@@ -134,7 +114,8 @@
     })
       .then(function (response) {
         if (response.ok) {
-          // Show thank-you state
+          // Show thank-you state and reset the form
+          form.reset();
           form.classList.add('hidden');
           if (thankYou) thankYou.classList.remove('hidden');
         } else {

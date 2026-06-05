@@ -44,16 +44,24 @@
     font-display: optional;
   }
 
-  /* Reveal-on-scroll animation */
+  /* Reveal-on-scroll animation (opacity/transform only — never affects scroll) */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease;
   }
 
-  .reveal.active {
+  .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
   }
 
   /* Diamond bullet list marker */
