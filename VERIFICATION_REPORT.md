@@ -174,7 +174,7 @@
 12. Create legal pages (/privacy /terms /regulatory /sustainability)
 
 ### Priority 4 — Phase 2
-13. Serbian + Russian language versions
+13. Serbian language version — DONE (no Russian version planned)
 14. Tatar Hill dedicated landing page
 15. Convert images to WebP for Lighthouse performance boost
 

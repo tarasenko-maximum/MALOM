@@ -87,6 +87,9 @@
     return valid;
   }
 
+  // NOTE: the form is currently a DESIGN ELEMENT only — no backend is wired.
+  // Submission is handled entirely client-side: validate, then show the
+  // thank-you state and reset. No network request is made.
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -99,42 +102,10 @@
 
     if (errorMsg) errorMsg.classList.add('hidden');
 
-    // Disable submit button to prevent double submission
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-    }
-
-    var data = new FormData(form);
-
-    fetch(form.action, {
-      method:  'POST',
-      body:    data,
-      headers: { 'Accept': 'application/json' },
-    })
-      .then(function (response) {
-        if (response.ok) {
-          // Show thank-you state and reset the form
-          form.reset();
-          form.classList.add('hidden');
-          if (thankYou) thankYou.classList.remove('hidden');
-        } else {
-          return response.json().then(function (data) {
-            throw new Error(data.error || 'Submission failed.');
-          });
-        }
-      })
-      .catch(function (err) {
-        console.error('Form error:', err);
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Inquiry';
-        }
-        if (errorMsg) {
-          errorMsg.textContent = 'Something went wrong. Please try again or email concierge@malominvest.com directly.';
-          errorMsg.classList.remove('hidden');
-        }
-      });
+    // Show thank-you state and reset the form (no request sent)
+    form.reset();
+    form.classList.add('hidden');
+    if (thankYou) thankYou.classList.remove('hidden');
   });
 
   // Clear error state on input

@@ -2,11 +2,10 @@
 <!--
   Malom Invest — Production Landing Page
   ========================================
-  i18n note: site is currently English-only.
-  Adding Serbian (sr) and Russian (ru) versions is planned for Phase 2.
+  i18n note: site is bilingual — English (/) and Serbian (/sr/). There is no Russian version.
   All text content sits in semantic elements (<p>, <h1–h4>, <span>, etc.)
   for easy extraction into a translation layer.
-  When multilang is added, swap <html lang="en"> to the active locale.
+  The active locale is set on the <html lang="…"> attribute of each page.
 -->
 <html lang="en" class="scroll-smooth scroll-pt-[96px]">
 <head>
@@ -28,14 +27,14 @@
   <meta property="og:url"         content="https://malominvest.com/" />
   <meta property="og:title"       content="Malom Invest — Homes that live with you." />
   <meta property="og:description" content="Premium residences in Serbia and across Europe. Hillside and urban homes designed for the rhythm of daily life — since 2017." />
-  <meta property="og:image"       content="https://malominvest.com/images/og-image.jpg" />
+  <meta property="og:image"       content="https://malominvest.com/images/hero.jpg" />
   <!-- og:image dimensions: 1200×630 — see images/README.md -->
 
   <!-- ── Twitter Card ───────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Malom Invest — Homes that live with you." />
   <meta name="twitter:description" content="Premium residences in Serbia and across Europe. Hillside and urban homes designed for the rhythm of daily life — since 2017." />
-  <meta name="twitter:image"       content="https://malominvest.com/images/og-image.jpg" />
+  <meta name="twitter:image"       content="https://malominvest.com/images/hero.jpg" />
 
   <!-- ── Favicon ────────────────────────────────────────────────── -->
   <!--
@@ -228,7 +227,7 @@
 
     <!-- Hero text content -->
     <div class="relative z-10 text-center px-margin_mobile max-w-4xl">
-      <h1 class="font-display-lg text-display-lg text-white">
+      <h1 class="font-display-lg font-light tracking-tight text-[2.5rem] leading-[1.1] sm:text-5xl md:text-display-lg text-white">
         Homes that live with you.
       </h1>
       <p class="mt-6 font-body-lg text-body-lg text-white/80 max-w-xl mx-auto">
@@ -238,7 +237,7 @@
       <div class="mt-12 flex flex-col items-center gap-8">
         <button
           id="btn-explore"
-          class="px-12 py-4 bg-white text-on-surface font-label-sm uppercase tracking-widest rounded-[2px] shadow-lg hover:bg-white/90 active:scale-95 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
+          class="px-12 py-4 bg-white text-on-surface font-label-sm uppercase tracking-widest rounded-[2px] shadow-lg hover:bg-white/90 active:scale-95 transition-[background-color,transform] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
           type="button"
           aria-label="Explore our property portfolios"
         >
@@ -511,7 +510,7 @@
     <!-- Section header -->
     <div class="max-w-max_width mx-auto px-margin_mobile md:px-gutter text-center mb-16 reveal">
       <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">OUR EXPERIENCE</p>
-      <h2 id="network-heading" class="font-headline-lg text-headline-lg">Eight years of expertise. Now at home in Serbia.</h2>
+      <h2 id="network-heading" class="font-headline-lg text-headline-lg">European expertise — now at home in Serbia.</h2>
       <p class="mt-6 font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
         Whether built into a Cypriot hillside or nestled in a Stockholm suburb, every Malom residence shares one principle: a home is the most personal thing a person owns. We honor that — everywhere we build.
       </p>
@@ -695,19 +694,27 @@
             </address>
           </div>
           <div>
+            <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Phone</p>
+            <!-- placeholder phone — replace with real number -->
+            <p class="font-body-lg not-italic">
+              <a href="tel:+381210000000" class="hover:text-primary-fixed-dim transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-2">+381 21 000 0000</a>
+            </p>
+          </div>
+          <div>
             <p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest mb-2">Find Us</p>
             <div class="w-full overflow-hidden">
               <iframe loading="lazy" title="Malom Invest office" style="border:0;width:100%;height:320px" src="https://maps.google.com/maps?q=%C5%BDelezni%C4%8Dka%2020%2C%2021000%20Novi%20Sad%2C%20Serbia&output=embed"></iframe>
             </div>
           </div>
-          <div class="flex gap-6 pt-4">
+          <!-- social links: add real URLs when accounts exist -->
+          <div class="flex gap-4 pt-4">
             <a
-              class="hover:text-primary-fixed-dim transition-colors font-label-sm uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4"
+              class="inline-flex items-center px-5 py-2 border border-white/25 rounded-full hover:border-primary-fixed-dim hover:text-primary-fixed-dim transition-colors font-label-sm text-label-sm uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4"
               href="#"
               aria-label="Malom Invest on LinkedIn"
             >LinkedIn</a>
             <a
-              class="hover:text-primary-fixed-dim transition-colors font-label-sm uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4"
+              class="inline-flex items-center px-5 py-2 border border-white/25 rounded-full hover:border-primary-fixed-dim hover:text-primary-fixed-dim transition-colors font-label-sm text-label-sm uppercase tracking-widest focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-fixed-dim focus-visible:outline-offset-4"
               href="#"
               aria-label="Malom Invest on Instagram"
             >Instagram</a>
@@ -717,21 +724,10 @@
 
       <!-- Contact form -->
       <div class="bg-white/5 p-8 md:p-12 reveal">
-        <!--
-          FORMSPREE SETUP:
-          ─────────────────────────────────────────────────────────────
-          1. Go to https://formspree.io and create a free account.
-          2. Click "New Form" → choose a name (e.g. "Malom Invest Inquiry").
-          3. Copy the form endpoint URL (format: https://formspree.io/f/xxxxxxxx).
-          4. Replace "REPLACE_WITH_YOUR_FORMSPREE_ID" in the action attribute below.
-          5. Formspree sends all submissions to the email you used to register.
-          6. Upgrade to Formspree Gold for GDPR compliance (€10/mo) if needed.
-          ─────────────────────────────────────────────────────────────
-        -->
-        <!-- TODO: set real Formspree endpoint -->
+        <!-- Form is a design element. Evgeny: wire to backend (e.g. Formspree) here. -->
         <form
           id="contact-form"
-          action="https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID"
+          action="#"
           method="POST"
           novalidate
           aria-label="Investment inquiry form"

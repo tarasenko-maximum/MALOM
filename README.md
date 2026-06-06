@@ -172,19 +172,19 @@ For production, copy logos to `/images/` and update paths in `index.html`.
 
 ---
 
-## Internationalization (i18n) — Phase 2
+## Internationalization (i18n)
 
-The site is currently **English only**. All text content is wrapped in semantic HTML
-elements (`<p>`, `<h1>`–`<h4>`, `<span>`, `<address>`) making it straightforward to
-extract into a translation layer.
+The site is **bilingual**: English at `/` (`public/index.html`) and Serbian at `/sr/`
+(`public/sr/index.html`). **There is no Russian version.** All text content is wrapped in
+semantic HTML elements (`<p>`, `<h1>`–`<h4>`, `<span>`, `<address>`).
 
-**Planned languages:** English (en), Serbian (sr), Russian (ru)
+**Languages:** English (en), Serbian (sr)
 
-When multilang is implemented:
-1. Swap `<html lang="en">` to the active locale (`sr`, `ru`, etc.)
-2. Create `/sr/index.html` and `/ru/index.html` with translated strings
-3. Add `<link rel="alternate" hreflang="sr" href="/sr/" />` tags
-4. Update sitemap with all language variants
+Conventions:
+1. Each page sets its locale on `<html lang="…">` (`en` / `sr`).
+2. `hreflang` alternates link the two versions (`en`, `sr-Latn`, `x-default`).
+3. When editing content, apply the same change to **both** `public/index.html` and
+   `public/sr/index.html` (markup identical, text translated).
 
 ---
 
